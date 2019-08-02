@@ -10,6 +10,19 @@ Hello there potential teammate!  With this short quiz we hope to get a sense of 
 4. Zip up your changes.
 5. Send an email with your zip attached to hr@americanfinancing.net letting them know you've completed the quiz.
 
+# Project Setup
+
+1. `$ bundle`
+2. `$ rails db:setup`
+3. `$ yarn`
+4. `$ bin/rs` or `$ foreman start`
+
+## Debugging
+
+[PRY Remote gem][pry-remote] is included for debugging purposes, invoke with
+`binding.remote_pry` and follow the directions provided in the server console to
+connect.
+
 # Mock Ticket
 
 (Written by our Product Owner for maximum authenticity 😉)
@@ -54,3 +67,4 @@ As far as users are concerned, this website has the following features:
 [repo]: https://github.com/americanfinancing/ce_jr_engineer/tree/master
 [stimulus]: https://stimulusjs.org
 [zip]: https://github.com/americanfinancing/ce_jr_engineer/archive/master.zip
+[pry-remote]: https://github.com/Mon-Ouie/pry-remote

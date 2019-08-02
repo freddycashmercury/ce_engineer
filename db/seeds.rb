@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+25.times do |i|
+  Restaurant.create(
+    name: "Test Restaurant ##{i+1}",
+    image_url: ActionController::Base.helpers.image_path('food-icon.png'),
+  )
+end
