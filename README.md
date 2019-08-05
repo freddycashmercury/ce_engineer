@@ -7,8 +7,9 @@ Hello there potential teammate!  With this short quiz we hope to get a sense of 
 1. Read through the mock ticket below.
 2. [Download][zip] or clone the [official repository][repo].
 3. Complete the mock ticket.
-4. Zip up your changes.
-5. Send an email with your zip attached to hr@americanfinancing.net letting them know you've completed the quiz.
+4. Run `$ bin/pre-submit-clean`
+5. Zip up your changes.
+6. Send an email with your zip attached to hr@americanfinancing.net letting them know you've completed the quiz.
 
 # Project Setup
 
