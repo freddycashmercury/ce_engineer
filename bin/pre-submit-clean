@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+require 'fileutils'
+require 'open3'
+
+include FileUtils
+
+APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
+
+node_modules = APP_ROOT.join('node_modules')
+app_cache = APP_ROOT.join('tmp', 'cache')
+
+rm_rf [node_modules, app_cache], secure: true
+
+dir_size = Open3.capture2("du -ch #{APP_ROOT}").first.split("\n").last.split("\t").first
+
+puts "Clean up complete, project size now ~#{dir_size}"
