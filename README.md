@@ -1,4 +1,4 @@
-# Customer Experience Team - Jr. Software Engineer Quiz
+# Customer Experience Team - Software Engineer Quiz
 
 Hello there potential teammate!  With this short quiz we hope to get a sense of how you approach problems and devise solutions.  To that end, we're hoping you'll find the following quiz interesting while not demanding a large time investment.
 
@@ -28,7 +28,7 @@ connect.
 
 (Written by our Product Owner for maximum authenticity 😉)
 
-## 📄 \[CE-007\] Jr. Software Engineer Quiz
+## 📄 \[CE-007\] Software Engineer Quiz
 
 ### Background:
 
@@ -65,7 +65,7 @@ As far as users are concerned, this website has the following features:
 * Browser Support: Current versions of Chrome and Firefox (for simplicity's sake)
 * Restaurant database entries are _not_ required to maintain the same primary key between rake executions but no duplication should result
 
-[repo]: https://github.com/americanfinancing/ce_jr_engineer/tree/master
+[repo]: https://github.com/americanfinancing/ce_engineer/tree/master
 [stimulus]: https://stimulusjs.org
-[zip]: https://github.com/americanfinancing/ce_jr_engineer/archive/master.zip
+[zip]: https://github.com/americanfinancing/ce_engineer/archive/master.zip
 [pry-remote]: https://github.com/Mon-Ouie/pry-remote
