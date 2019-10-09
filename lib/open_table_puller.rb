@@ -10,13 +10,22 @@ class OpenTablePuller
       if page < last_page
         pull page + 1, data
       else
-        data
+        @all_restaurants = data
+      end
+    end
+
+    def update_db
+      Restaurant.transaction do
+        Restaurant.delete_all
+        all_restaurants.map do |record|
+          Restaurant.create(parse_record(record))
+        end
       end
     end
 
     private
 
-    attr_reader :restaurants, :last_page
+    attr_reader :restaurants, :last_page, :all_restaurants
 
     def fetch_page(page)
       json = fetch_json_on(page)
@@ -38,6 +47,10 @@ class OpenTablePuller
     def process(json)
       @restaurants = json[:restaurants]
       @last_page ||= (json[:total_entries].to_i / json[:per_page].to_f).ceil
+    end
+
+    def parse_record(record)
+      record.except(:id, :area, :country, :lat, :lng, :mobile_reserve_url)
     end
   end
 end

@@ -23,7 +23,9 @@ export default class extends Controller {
   nextPage(event) {
     event.preventDefault()
 
-    this._showRestaurantsByPage(this.currentPage + 1)
+    if (this.currentPage < this.lastPage) {
+      this._showRestaurantsByPage(this.currentPage + 1)
+    }
   }
 
   previousPage(event) {
@@ -139,10 +141,13 @@ export default class extends Controller {
     xhr.get(paginatedUrl).then(response => {
       if (response !== ' ') {
         const jsonResponse = JSON.parse(response)
+        const entriesCount = jsonResponse['total_entries']
+        const entriesPerPage = jsonResponse['per_page']
 
         this._cacheRestaurantPage(page, new Set(jsonResponse['restaurants']))
         this._injectRestaurants(page)
 
+        this._setLastPage(entriesCount, entriesPerPage)
         this._updatePaginationUi(page)
       } else {
         console.log('empty response')
@@ -156,8 +161,17 @@ export default class extends Controller {
 
     if (page === 1) {
       this.paginationPrevTargets.map(link => link.classList.add(inactiveClass))
+      this.paginationNextTargets.map(link => link.classList.remove(inactiveClass))
+    } else if (page === this.lastPage) {
+      this.paginationPrevTargets.map(link => link.classList.remove(inactiveClass))
+      this.paginationNextTargets.map(link => link.classList.add(inactiveClass))
     } else {
       this.paginationPrevTargets.map(link => link.classList.remove(inactiveClass))
+      this.paginationNextTargets.map(link => link.classList.remove(inactiveClass))
     }
+  }
+
+  _setLastPage(entriesCount, entriesPerPage) {
+    this.lastPage = Math.ceil(entriesCount / entriesPerPage)
   }
 }
